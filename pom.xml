@@ -18,7 +18,6 @@
         <module>dan-common</module>
         <module>dan-business</module>
         <module>dan-start</module>
-        <module>dan-view</module>
     </modules>
 
 
