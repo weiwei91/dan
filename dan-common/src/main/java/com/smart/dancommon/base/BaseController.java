@@ -1,5 +1,6 @@
 package com.smart.dancommon.base;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,9 +10,9 @@ import org.slf4j.LoggerFactory;
  * @Date 2020/8/31 19:06
  * @Version 1.0
  */
+@Slf4j
 public class BaseController {
-    protected Logger logger =null;
     public BaseController(){
-        logger= LoggerFactory.getLogger(getClass().getName());
+        log= LoggerFactory.getLogger(getClass().getName());
     }
 }

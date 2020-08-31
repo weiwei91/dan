@@ -7,10 +7,9 @@ package com.smart.dancommon.base;
  * @Version 1.0
  */
 
+import com.smart.dancommon.constant.Constants;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import java.io.Serializable;
 import static com.smart.dancommon.constant.Constants.CODE_ALREADY_HANDLED;
 import static com.smart.dancommon.constant.Constants.CODE_FAILURED;
@@ -22,10 +21,6 @@ import static com.smart.dancommon.constant.Constants.CODE_SUCCESS;
 @Data
 @NoArgsConstructor
 public class Response<T> implements Serializable {
-
-    private static Logger logger = LoggerFactory.getLogger(Response.class);
-
-
 
 
     private String code;
@@ -92,11 +87,23 @@ public class Response<T> implements Serializable {
      *
      * @param message
      * @param data
-     * @param errorCode
+     * @param code
      * @return
      */
-    public static final Response failure(String message, Object data, String errorCode) {
-        return new Response(errorCode, message, data);
+    public static final Response failure(String message, Object data, String code) {
+        return new Response(code, message, data);
+    }
+
+    /**
+     * 内部工厂方法，缺省code
+     *
+     * @param message
+     * @param data
+
+     * @return
+     */
+    public static final Response failure(String message, Object data) {
+        return new Response(Constants.CODE_FAILURED, message, data);
     }
 
 
@@ -104,11 +111,11 @@ public class Response<T> implements Serializable {
      * 内部工厂方法，缺省消息体
      *
      * @param data
-     * @param errorCode
+     * @param code
      * @return
      */
-    public static final Response failure(Object data, String errorCode) {
-        return new Response(errorCode, null, data);
+    public static final Response failure(Object data, String code) {
+        return new Response(code, null, data);
     }
 
     @Override
