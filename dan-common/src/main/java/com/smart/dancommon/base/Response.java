@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.Serializable;
+import static com.smart.dancommon.constant.Constants.CODE_ALREADY_HANDLED;
+import static com.smart.dancommon.constant.Constants.CODE_FAILURED;
+import static com.smart.dancommon.constant.Constants.CODE_SUCCESS;
 
 /**
  * 标准返回对象
@@ -22,9 +25,7 @@ public class Response<T> implements Serializable {
 
     private static Logger logger = LoggerFactory.getLogger(Response.class);
 
-    public static String CODE_SUCCESS = "0";
-    public static String CODE_FAILURED = "-1";
-    public static String ALREADY_HANDLED = "-2";
+
 
 
     private String code;
@@ -120,10 +121,10 @@ public class Response<T> implements Serializable {
     }
 
     public boolean isSuccess(){
-        return Response.CODE_SUCCESS.equals(this.getCode());
+        return CODE_SUCCESS.equals(this.getCode());
     }
     public static Response alreadyHandled(){
-        return new Response(ALREADY_HANDLED,"重复操作",null);
+        return new Response(CODE_ALREADY_HANDLED,"重复操作",null);
     }
 
 }
