@@ -8,11 +8,9 @@
         <version>1.0.0-SNAPSHOT</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.smart</groupId>
+
     <artifactId>dan-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>dan-api</name>
-    <description>对外能力开放</description>
+    <packaging>jar</packaging>
 
     <properties>
         <java.version>1.8</java.version>
