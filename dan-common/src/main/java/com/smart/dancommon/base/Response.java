@@ -28,7 +28,7 @@ public class Response<T> implements Serializable {
     private T data;
 
 
-    private Response(String code, String msg, T data) {
+    public Response(String code, String msg, T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;

@@ -1,9 +1,10 @@
 package com.smart.danbusiness.DemoController;
 
 import com.smart.dancommon.base.Response;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 /**
  * @ClassName RestApiDemo
  * @Author WeiWei10
@@ -14,7 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestApiDemo {
     @GetMapping("/getDemo")
     public Response crypt() {
-        return Response.success("sucess");
+        Response response = Response.success("sucess");
+        return response;
+    }
+
+    @GetMapping("/getDemo1")
+    public Book crypt1() {
+
+        return new Book("123");
+    }
+    @Data
+    @AllArgsConstructor
+    class Book{
+        String name;
     }
 
 }
